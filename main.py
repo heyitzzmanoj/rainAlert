@@ -4,7 +4,8 @@ import os
 from twilio.rest import Client 
 account_sid = os.getenv("ACCOUNT_SID")
 auth_token = os.getenv("AUTH_TOKEN")
-api_key = os.getenv("API_KEY")
+api_key = os.getenv("API_KEY") 
+my_number = os.getenv("MY_NUMBER")
 #api_key = "4bb4a24a19f52fa8260f57705b94a1d2"  
 api_end_point = "https://api.openweathermap.org/data/2.5/forecast"  
 #account_sid = "AC7c040d63a5405bab54dc99209945d44a" 
@@ -34,13 +35,13 @@ if rain:
     message = client.messages.create(
             body = "Bring an umbrella",
             from_= "+19126164076",
-            to  = "+917568836319"
+            to  = my_number
     ) 
 else: 
     client  = Client(account_sid,auth_token)
     message = client.messages.create(
             body = "Clear",
             from_= "+19126164076",
-            to  = "+917568836319"
+            to  = my_number
     )
 
