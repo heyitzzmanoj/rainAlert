@@ -1,0 +1,39 @@
+name: Daily Rain Alert
+
+on:
+  schedule:
+    # Runs at 5:00 AM IST (11:30 PM UTC previous day)
+    # Use crontab.guru to verify
+    - cron: '30 23 * * *'
+  workflow_dispatch: # Manual trigger option
+
+jobs:
+  check-rain:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests pandas
+        # Add your specific dependencies here
+    
+    - name: Run rain alert script
+      env:
+        # Add your API keys as GitHub Secrets
+        AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
+        API_KEY: ${{ secrets.API_KEY}}
+        AUTH_SID: ${{ secrets.AUTH_SID }}
+      run: |
+        python msin.py
+    
+
+      
