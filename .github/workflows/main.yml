@@ -31,7 +31,8 @@ jobs:
         # Add your API keys as GitHub Secrets
         AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
         API_KEY: ${{ secrets.API_KEY}}
-        AUTH_SID: ${{ secrets.AUTH_SID }}
+        ACCOUNT_SID: ${{ secrets.ACCOUNT_SID }}
+        MY_NUMBER: ${{ secrets.MY_NUMBER }}
       run: |
         python msin.py
     
