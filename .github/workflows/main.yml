@@ -4,7 +4,7 @@ on:
   schedule:
     # Runs at 5:00 AM IST (11:30 PM UTC previous day)
     # Use crontab.guru to verify
-    - cron: '15 13 * * *'
+    - cron: '30 6 * * *'
   workflow_dispatch: # Manual trigger option
 
 jobs:
