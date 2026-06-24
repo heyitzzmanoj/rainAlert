@@ -28,11 +28,12 @@ jobs:
     
     - name: Run rain alert script
       env:
-        # Add your API keys as GitHub Secrets
+        # Add your API keys as GitHub Secrets continue-on-error: 
         AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
         API_KEY: ${{ secrets.API_KEY}}
         ACCOUNT_SID: ${{ secrets.ACCOUNT_SID }}
-        MY_NUMBER: ${{ secrets.MY_NUMBER }}
+        MY_NUMBER: ${{ secrets.MY_NUMBER }} 
+        API_END: ${{ secrets.API_END }}
       run: |
         python msin.py
     
