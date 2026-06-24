@@ -5,9 +5,10 @@ from twilio.rest import Client
 account_sid = os.getenv("ACCOUNT_SID")
 auth_token = os.getenv("AUTH_TOKEN")
 api_key = os.getenv("API_KEY") 
-my_number = os.getenv("MY_NUMBER")
+my_number = os.getenv("MY_NUMBER") 
+api_end_poin= os.getenv("API_END")
 #api_key = "4bb4a24a19f52fa8260f57705b94a1d2"  
-api_end_point = "https://api.openweathermap.org/data/2.5/forecast"  
+#api_end_point = "https://api.openweathermap.org/data/2.5/forecast"  
 #account_sid = "AC7c040d63a5405bab54dc99209945d44a" 
 #auth_token ="3c825e290978532ca2c2e8336ae99b3e"
 def create_forcast():
