@@ -10,7 +10,26 @@ api_end_point= os.getenv("API_END")
 #api_key = "4bb4a24a19f52fa8260f57705b94a1d2"  
 #api_end_point = "https://api.openweathermap.org/data/2.5/forecast"  
 #account_sid = "AC7c040d63a5405bab54dc99209945d44a" 
-#auth_token ="3c825e290978532ca2c2e8336ae99b3e"
+#auth_token ="3c825e290978532ca2c2e8336ae99b3e" 
+def mail_sent(m):
+    my_email = "sutharm965.com@gmail.com"
+    password = "wnvwcgemqyebaseq"
+    
+    
+    connection = smtplib.SMTP("smtp.gmail.com",587)
+    connection.starttls()
+    connection.login(user=my_email,password=password)
+    connection.sendmail(from_addr=my_email,to_addrs="sutharmanoj275@gmail.com",msg=m) 
+    connection.close() 
+    
+def msg_sent(m):
+    client  = Client(account_sid,auth_token)
+    message = client.messages.create(
+            body = m,
+            from_= "+19126164076",
+            to  = "+917568836319"
+    )
+
 def create_forcast():
     weather_paramerte ={
         "lat":24.5777364,
@@ -32,17 +51,20 @@ for hour in data:
     if (hour["weather"][0]["id"]) < 700:
         rain = True 
 if rain:
-    client  = Client(account_sid,auth_token)
-    message = client.messages.create(
-            body = "Bring an umbrella",
-            from_= "+19126164076",
-            to  = my_number
-    ) 
-else: 
-    client  = Client(account_sid,auth_token)
-    message = client.messages.create(
-            body = "Clear",
-            from_= "+19126164076",
-            to  = my_number
-    )
+    m=f"""Subject: Rain Alert
 
+      Bring an Umbrella"""
+    try:
+        msg_sent("Bring an umbrella") 
+    except:
+        mail_sent(m) 
+    
+else: 
+    m=f"""Subject: Rain Alert
+
+      All clear"""         
+    try:
+        msg_sent("Clear") 
+    except:
+        mail_sent(m)  
+        
