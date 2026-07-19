@@ -10,20 +10,16 @@ my_number = os.getenv("MY_NUMBER")
 api_end_point= os.getenv("API_END")
 my_email = os.getenv("EMAIL")
 password = os.getenv("PASSWORD")
-to_email = os.getenv("TO_EMAIL")
+to_email = os.getenv("TO_MAIL")
 #api_key = "4bb4a24a19f52fa8260f57705b94a1d2"  
 #api_end_point = "https://api.openweathermap.org/data/2.5/forecast"  
 #account_sid = "AC7c040d63a5405bab54dc99209945d44a" 
 #auth_token ="3c825e290978532ca2c2e8336ae99b3e" 
-def mail_sent(m):
-    my_email = "sutharm965.com@gmail.com"
-    password = "wnvwcgemqyebaseq"
-    
-    
+def mail_sent(m):        
     connection = smtplib.SMTP("smtp.gmail.com",587)
     connection.starttls()
     connection.login(user=my_email,password=password)
-    connection.sendmail(from_addr=my_email,to_addrs="sutharmanoj275@gmail.com",msg=m) 
+    connection.sendmail(from_addr=my_email,to_addrs=to_email,msg=m) 
     connection.close() 
     
 def msg_sent(m):
