@@ -23,9 +23,14 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install requests pandas
-        # Add your specific dependencies here
-    
+        pip install requests pandas 
+        
+        # Add your specific dependencies here 
+
+    - name: Install dependencies
+      run: |
+       python -m pip install --upgrade pip
+       pip install twilio requests
     - name: Run rain alert script
       env:
         # Add your API keys as GitHub Secrets continue-on-error: 
