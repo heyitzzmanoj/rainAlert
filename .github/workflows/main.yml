@@ -35,7 +35,7 @@ jobs:
         MY_NUMBER: ${{ secrets.MY_NUMBER }} 
         API_END: ${{ secrets.API_END }}
       run: |
-        python msin.py
+        python main.py
     
 
       
