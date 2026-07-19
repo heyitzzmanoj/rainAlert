@@ -39,6 +39,9 @@ jobs:
         ACCOUNT_SID: ${{ secrets.ACCOUNT_SID }}
         MY_NUMBER: ${{ secrets.MY_NUMBER }} 
         API_END: ${{ secrets.API_END }}
+        EMAIL: ${{ secrets.EMIAL }}
+        PASSWORD: ${{ secrets.PASSWORD }}
+        TO_MAIL: ${{ secrets.TO_MAIL }}
       run: |
         python main.py
     
