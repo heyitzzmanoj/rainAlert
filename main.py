@@ -2,6 +2,7 @@ import requests
 import json
 import os 
 from twilio.rest import Client 
+import smtplib
 account_sid = os.getenv("ACCOUNT_SID")
 auth_token = os.getenv("AUTH_TOKEN")
 api_key = os.getenv("API_KEY") 
