@@ -27,7 +27,7 @@ def msg_sent(m):
     message = client.messages.create(
             body = m,
             from_= "+19126164076",
-            to  = "+917568836319"
+            to  = my_number
     )
 
 def create_forcast():
